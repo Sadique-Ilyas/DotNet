@@ -10,4 +10,4 @@ Learning Microsoft Technologies & Others
 - [ ] WPF, WCF
 - [ ] MicrosServices
 - [ ] Design Patterns (CQRS)
-- [ ] SOA
+- [ ] SOA :white_check_mark:
