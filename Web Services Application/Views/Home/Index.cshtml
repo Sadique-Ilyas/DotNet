@@ -1,0 +1,24 @@
+﻿z
+
+<div class="text-center">
+	<h1 class="display-4">Welcome to ASP.NET Core WebServices Application</h1>
+	<table class="table table-striped">
+  <thead>
+	<tr>
+	  <th scope="col">#</th>
+	  <th scope="col">First</th>
+	  <th scope="col">Last</th>
+	</tr>
+  </thead>
+  <tbody>
+	@foreach (var employee in Model)
+	{
+		<tr>
+			<th scope="row">@employee.EmployeeID</th>
+			<td>@employee.FirstName</td>
+			<td>@employee.LastName</td>
+		</tr>
+	}
+  </tbody>
+</table>
+</div>

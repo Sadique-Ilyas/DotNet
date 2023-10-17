@@ -1,0 +1,42 @@
+﻿@model WebServices.NetApp.Models.SessionResponse
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Add SessionName</h2>
+        <form method="post" action="GetSessionName">
+            <div class="form-group">
+                <label>Session Name</label>
+                <input class="form-control" name="SessionName" type="text" placeholder="Enter Session Name">
+            </div>
+            <br />
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <br />
+            <h2>Result: @(Model.Result ?? "Empty")</h2>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <h2>Get SessionName</h2>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Session Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var name in Model.SessionNamesList)
+                {
+                    <tr>
+                        <td>@name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <h2>Get SessionCount</h2>
+        <button>@Html.ActionLink("Get Count", "IncrementCount", "Home")</button>
+        <h2>Count: @Model.Count</h2>
+    </div>
+</div>

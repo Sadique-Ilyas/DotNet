@@ -1,0 +1,25 @@
+﻿@model WebServices.NetApp.Models.Calculation
+
+<form class="myForm" method="post" action="Calculator">
+    <div class="form-group">
+        <label>First Number</label>
+        <input class="form-control" name="FirstNumber" placeholder="Enter First Number">
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Operation</label>
+        <input class="form-control" name="Operation" placeholder="Enter Operation">
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Second Number</label>
+        <input class="form-control" name="SecondNumber" placeholder="Enter Second Number">
+    </div>
+    <br />
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        @*<button asp-action="Calculation" asp-route-calculation=null class="btn btn-primary">Reset</button>*@
+    </div>
+    <br />
+    <h2>Result: @(Model!=null ? Model.Result: "empty")</h2>
+</form>

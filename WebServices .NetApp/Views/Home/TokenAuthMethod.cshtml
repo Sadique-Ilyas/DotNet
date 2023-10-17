@@ -1,0 +1,44 @@
+﻿@using WebServices.NetApp.LocalServiceReference;
+@model AuthResponse
+
+<div class="row">
+    <div class="col-md-6">
+        <form class="myForm" method="post" action="TokenAuthMethod">
+            <h1 class="text-center">Enter Credentials</h1>
+            <div class="form-group">
+                <label>Username</label>
+                <input class="form-control" name="Username" placeholder="Enter Username">
+            </div>
+            <br />
+            <div class="form-group">
+                <label>Password</label>
+                <input class="form-control" name="Password" type="password" placeholder="Enter Password">
+            </div>
+            <br />
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        @if (Model?.Token != null)
+        {
+            <form class="myForm" method="post" action="TokenAuthMethod">
+                <div class="form-group">
+                    <label>Token</label>
+                    <input class="form-control" name="Token" placeholder="Enter Token">
+                </div>
+                <br />
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Validate</button>
+                </div>
+            </form>
+        }
+    </div>
+</div>
+<br />
+<div class="text-center">
+    <h3>@(Model?.Username != null ? "Hello, " + Model?.Username : "")</h3>
+    <p>@(Model?.Token)</p>
+    <h3 class="text-center text-info">@(Model?.Message)</h3>
+</div>

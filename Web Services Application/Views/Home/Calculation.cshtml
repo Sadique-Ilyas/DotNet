@@ -1,0 +1,25 @@
+﻿@model Web_Services_Application.Models.Calculation
+
+<form asp-action="Calculation">
+  <div class="form-group">
+	<label asp-for="FirstNumber"></label>
+	<input asp-for="FirstNumber" class="form-control" placeholder="Enter First Number">
+  </div>
+  <br />
+  <div class="form-group">
+	<label asp-for="Operation"></label>
+	<input asp-for="Operation" class="form-control" placeholder="Enter Operation">
+  </div>
+  <br />
+  <div class="form-group">
+	<label asp-for="SecondNumber"></label>
+	<input asp-for="SecondNumber" class="form-control" placeholder="Enter First Number">
+  </div>
+  <br />
+  <div class="form-group">
+	<button type="submit" class="btn btn-primary">Submit</button>
+	<button asp-action="Calculation" asp-route-calculation=null class="btn btn-primary">Reset</button>
+  </div>
+  <br />
+  <small>Result:- @Model.Result</small>
+</form>

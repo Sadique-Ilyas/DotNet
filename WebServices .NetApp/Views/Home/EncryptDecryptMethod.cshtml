@@ -1,0 +1,23 @@
+﻿@model WebServices.NetApp.LocalServiceReference.AuthResponse
+
+<form class="myForm" method="post" action="EncryptDecryptMethod">
+    <h2>Encrypt Decrypt</h2>
+    <div class="form-group">
+        <label>Username</label>
+        <input class="form-control" name="Username" placeholder="Enter Username">
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Password</label>
+        <input class="form-control" name="Password" type="password" placeholder="Enter Password">
+    </div>
+    <br />
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    @if(Model != null)
+	{
+        <small>@(Model?.Message)</small>
+        <h2>@(Model?.Username !=null ? "Hello, " + Model?.Username : "")</h2>
+	}
+</form>

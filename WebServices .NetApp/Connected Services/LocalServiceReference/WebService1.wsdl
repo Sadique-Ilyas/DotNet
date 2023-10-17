@@ -1,0 +1,1053 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MethodOverloading">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MethodOverloadingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MethodOverloadingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllEmployees">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllEmployeesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllEmployeesResult" type="tns:ArrayOfEmployee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEmployee">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Employee" nillable="true" type="tns:Employee" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Employee">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EmployeeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Calculation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="firstNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="operation" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="secondNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalculationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CalculationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSessionName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSessionNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddSessionNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSessionName">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSessionNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSessionNameResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IncrementSessionCount">
+        <s:complexType />
+      </s:element>
+      <s:element name="IncrementSessionCountResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSessionCount">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSessionCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSessionCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TimeOutMethod">
+        <s:complexType />
+      </s:element>
+      <s:element name="TimeOutMethodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TimeOutMethodResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthMethod">
+        <s:complexType />
+      </s:element>
+      <s:element name="AuthMethodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthMethodResult" type="tns:AuthResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AuthResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsCredentialsValid" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsTokenValid" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WebServiceAuth" type="tns:WebServiceAuth" />
+      <s:complexType name="WebServiceAuth">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="TokenAuthMethod">
+        <s:complexType />
+      </s:element>
+      <s:element name="TokenAuthMethodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TokenAuthMethodResult" type="tns:AuthResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateToken">
+        <s:complexType />
+      </s:element>
+      <s:element name="ValidateTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateTokenResult" type="tns:AuthResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EncryptDecryptMethod">
+        <s:complexType />
+      </s:element>
+      <s:element name="EncryptDecryptMethodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EncryptDecryptMethodResult" type="tns:AuthResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ArrayOfEmployee" nillable="true" type="tns:ArrayOfEmployee" />
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+      <s:element name="int" type="s:int" />
+      <s:element name="AuthResponse" nillable="true" type="tns:AuthResponse" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="MethodOverloadingSoapIn">
+    <wsdl:part name="parameters" element="tns:MethodOverloading" />
+  </wsdl:message>
+  <wsdl:message name="MethodOverloadingSoapOut">
+    <wsdl:part name="parameters" element="tns:MethodOverloadingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllEmployeesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllEmployees" />
+  </wsdl:message>
+  <wsdl:message name="GetAllEmployeesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CalculationSoapIn">
+    <wsdl:part name="parameters" element="tns:Calculation" />
+  </wsdl:message>
+  <wsdl:message name="CalculationSoapOut">
+    <wsdl:part name="parameters" element="tns:CalculationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSessionNameSoapIn">
+    <wsdl:part name="parameters" element="tns:AddSessionName" />
+  </wsdl:message>
+  <wsdl:message name="AddSessionNameSoapOut">
+    <wsdl:part name="parameters" element="tns:AddSessionNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSessionName" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSessionNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IncrementSessionCountSoapIn">
+    <wsdl:part name="parameters" element="tns:IncrementSessionCount" />
+  </wsdl:message>
+  <wsdl:message name="IncrementSessionCountSoapOut">
+    <wsdl:part name="parameters" element="tns:IncrementSessionCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSessionCount" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSessionCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="TimeOutMethodSoapIn">
+    <wsdl:part name="parameters" element="tns:TimeOutMethod" />
+  </wsdl:message>
+  <wsdl:message name="TimeOutMethodSoapOut">
+    <wsdl:part name="parameters" element="tns:TimeOutMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthMethodSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthMethod" />
+  </wsdl:message>
+  <wsdl:message name="AuthMethodSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthMethodWebServiceAuth">
+    <wsdl:part name="WebServiceAuth" element="tns:WebServiceAuth" />
+  </wsdl:message>
+  <wsdl:message name="TokenAuthMethodSoapIn">
+    <wsdl:part name="parameters" element="tns:TokenAuthMethod" />
+  </wsdl:message>
+  <wsdl:message name="TokenAuthMethodSoapOut">
+    <wsdl:part name="parameters" element="tns:TokenAuthMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="TokenAuthMethodWebServiceAuth">
+    <wsdl:part name="WebServiceAuth" element="tns:WebServiceAuth" />
+  </wsdl:message>
+  <wsdl:message name="ValidateTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateToken" />
+  </wsdl:message>
+  <wsdl:message name="ValidateTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateTokenWebServiceAuth">
+    <wsdl:part name="WebServiceAuth" element="tns:WebServiceAuth" />
+  </wsdl:message>
+  <wsdl:message name="EncryptDecryptMethodSoapIn">
+    <wsdl:part name="parameters" element="tns:EncryptDecryptMethod" />
+  </wsdl:message>
+  <wsdl:message name="EncryptDecryptMethodSoapOut">
+    <wsdl:part name="parameters" element="tns:EncryptDecryptMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="EncryptDecryptMethodWebServiceAuth">
+    <wsdl:part name="WebServiceAuth" element="tns:WebServiceAuth" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="MethodOverloadingHttpGetIn">
+    <wsdl:part name="name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MethodOverloadingHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllEmployeesHttpGetIn" />
+  <wsdl:message name="GetAllEmployeesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEmployee" />
+  </wsdl:message>
+  <wsdl:message name="CalculationHttpGetIn">
+    <wsdl:part name="firstNumber" type="s:string" />
+    <wsdl:part name="operation" type="s:string" />
+    <wsdl:part name="secondNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CalculationHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddSessionNameHttpGetIn">
+    <wsdl:part name="name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddSessionNameHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionNameHttpGetIn" />
+  <wsdl:message name="GetSessionNameHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="IncrementSessionCountHttpGetIn" />
+  <wsdl:message name="IncrementSessionCountHttpGetOut" />
+  <wsdl:message name="GetSessionCountHttpGetIn" />
+  <wsdl:message name="GetSessionCountHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="TimeOutMethodHttpGetIn" />
+  <wsdl:message name="TimeOutMethodHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthMethodHttpGetIn" />
+  <wsdl:message name="AuthMethodHttpGetOut">
+    <wsdl:part name="Body" element="tns:AuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="TokenAuthMethodHttpGetIn" />
+  <wsdl:message name="TokenAuthMethodHttpGetOut">
+    <wsdl:part name="Body" element="tns:AuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateTokenHttpGetIn" />
+  <wsdl:message name="ValidateTokenHttpGetOut">
+    <wsdl:part name="Body" element="tns:AuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="EncryptDecryptMethodHttpGetIn" />
+  <wsdl:message name="EncryptDecryptMethodHttpGetOut">
+    <wsdl:part name="Body" element="tns:AuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="MethodOverloadingHttpPostIn">
+    <wsdl:part name="name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MethodOverloadingHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllEmployeesHttpPostIn" />
+  <wsdl:message name="GetAllEmployeesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEmployee" />
+  </wsdl:message>
+  <wsdl:message name="CalculationHttpPostIn">
+    <wsdl:part name="firstNumber" type="s:string" />
+    <wsdl:part name="operation" type="s:string" />
+    <wsdl:part name="secondNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CalculationHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddSessionNameHttpPostIn">
+    <wsdl:part name="name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddSessionNameHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionNameHttpPostIn" />
+  <wsdl:message name="GetSessionNameHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="IncrementSessionCountHttpPostIn" />
+  <wsdl:message name="IncrementSessionCountHttpPostOut" />
+  <wsdl:message name="GetSessionCountHttpPostIn" />
+  <wsdl:message name="GetSessionCountHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="TimeOutMethodHttpPostIn" />
+  <wsdl:message name="TimeOutMethodHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AuthMethodHttpPostIn" />
+  <wsdl:message name="AuthMethodHttpPostOut">
+    <wsdl:part name="Body" element="tns:AuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="TokenAuthMethodHttpPostIn" />
+  <wsdl:message name="TokenAuthMethodHttpPostOut">
+    <wsdl:part name="Body" element="tns:AuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateTokenHttpPostIn" />
+  <wsdl:message name="ValidateTokenHttpPostOut">
+    <wsdl:part name="Body" element="tns:AuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="EncryptDecryptMethodHttpPostIn" />
+  <wsdl:message name="EncryptDecryptMethodHttpPostOut">
+    <wsdl:part name="Body" element="tns:AuthResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input name="MethodOverloading" message="tns:MethodOverloadingSoapIn" />
+      <wsdl:output name="MethodOverloading" message="tns:MethodOverloadingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployees">
+      <wsdl:input message="tns:GetAllEmployeesSoapIn" />
+      <wsdl:output message="tns:GetAllEmployeesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Calculation">
+      <wsdl:input message="tns:CalculationSoapIn" />
+      <wsdl:output message="tns:CalculationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSessionName">
+      <wsdl:input message="tns:AddSessionNameSoapIn" />
+      <wsdl:output message="tns:AddSessionNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionName">
+      <wsdl:input message="tns:GetSessionNameSoapIn" />
+      <wsdl:output message="tns:GetSessionNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IncrementSessionCount">
+      <wsdl:input message="tns:IncrementSessionCountSoapIn" />
+      <wsdl:output message="tns:IncrementSessionCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionCount">
+      <wsdl:input message="tns:GetSessionCountSoapIn" />
+      <wsdl:output message="tns:GetSessionCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeOutMethod">
+      <wsdl:input message="tns:TimeOutMethodSoapIn" />
+      <wsdl:output message="tns:TimeOutMethodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthMethod">
+      <wsdl:input message="tns:AuthMethodSoapIn" />
+      <wsdl:output message="tns:AuthMethodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TokenAuthMethod">
+      <wsdl:input message="tns:TokenAuthMethodSoapIn" />
+      <wsdl:output message="tns:TokenAuthMethodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateToken">
+      <wsdl:input message="tns:ValidateTokenSoapIn" />
+      <wsdl:output message="tns:ValidateTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EncryptDecryptMethod">
+      <wsdl:input message="tns:EncryptDecryptMethodSoapIn" />
+      <wsdl:output message="tns:EncryptDecryptMethodSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebService1HttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input name="MethodOverloading" message="tns:MethodOverloadingHttpGetIn" />
+      <wsdl:output name="MethodOverloading" message="tns:MethodOverloadingHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployees">
+      <wsdl:input message="tns:GetAllEmployeesHttpGetIn" />
+      <wsdl:output message="tns:GetAllEmployeesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Calculation">
+      <wsdl:input message="tns:CalculationHttpGetIn" />
+      <wsdl:output message="tns:CalculationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSessionName">
+      <wsdl:input message="tns:AddSessionNameHttpGetIn" />
+      <wsdl:output message="tns:AddSessionNameHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionName">
+      <wsdl:input message="tns:GetSessionNameHttpGetIn" />
+      <wsdl:output message="tns:GetSessionNameHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IncrementSessionCount">
+      <wsdl:input message="tns:IncrementSessionCountHttpGetIn" />
+      <wsdl:output message="tns:IncrementSessionCountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionCount">
+      <wsdl:input message="tns:GetSessionCountHttpGetIn" />
+      <wsdl:output message="tns:GetSessionCountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeOutMethod">
+      <wsdl:input message="tns:TimeOutMethodHttpGetIn" />
+      <wsdl:output message="tns:TimeOutMethodHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthMethod">
+      <wsdl:input message="tns:AuthMethodHttpGetIn" />
+      <wsdl:output message="tns:AuthMethodHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TokenAuthMethod">
+      <wsdl:input message="tns:TokenAuthMethodHttpGetIn" />
+      <wsdl:output message="tns:TokenAuthMethodHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateToken">
+      <wsdl:input message="tns:ValidateTokenHttpGetIn" />
+      <wsdl:output message="tns:ValidateTokenHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EncryptDecryptMethod">
+      <wsdl:input message="tns:EncryptDecryptMethodHttpGetIn" />
+      <wsdl:output message="tns:EncryptDecryptMethodHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebService1HttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input name="MethodOverloading" message="tns:MethodOverloadingHttpPostIn" />
+      <wsdl:output name="MethodOverloading" message="tns:MethodOverloadingHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployees">
+      <wsdl:input message="tns:GetAllEmployeesHttpPostIn" />
+      <wsdl:output message="tns:GetAllEmployeesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Calculation">
+      <wsdl:input message="tns:CalculationHttpPostIn" />
+      <wsdl:output message="tns:CalculationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSessionName">
+      <wsdl:input message="tns:AddSessionNameHttpPostIn" />
+      <wsdl:output message="tns:AddSessionNameHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionName">
+      <wsdl:input message="tns:GetSessionNameHttpPostIn" />
+      <wsdl:output message="tns:GetSessionNameHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IncrementSessionCount">
+      <wsdl:input message="tns:IncrementSessionCountHttpPostIn" />
+      <wsdl:output message="tns:IncrementSessionCountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionCount">
+      <wsdl:input message="tns:GetSessionCountHttpPostIn" />
+      <wsdl:output message="tns:GetSessionCountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TimeOutMethod">
+      <wsdl:input message="tns:TimeOutMethodHttpPostIn" />
+      <wsdl:output message="tns:TimeOutMethodHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthMethod">
+      <wsdl:input message="tns:AuthMethodHttpPostIn" />
+      <wsdl:output message="tns:AuthMethodHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TokenAuthMethod">
+      <wsdl:input message="tns:TokenAuthMethodHttpPostIn" />
+      <wsdl:output message="tns:TokenAuthMethodHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateToken">
+      <wsdl:input message="tns:ValidateTokenHttpPostIn" />
+      <wsdl:output message="tns:ValidateTokenHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EncryptDecryptMethod">
+      <wsdl:input message="tns:EncryptDecryptMethodHttpPostIn" />
+      <wsdl:output message="tns:EncryptDecryptMethodHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/MethodOverloading" style="document" />
+      <wsdl:input name="MethodOverloading">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MethodOverloading">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployees">
+      <soap:operation soapAction="http://tempuri.org/GetAllEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Calculation">
+      <soap:operation soapAction="http://tempuri.org/Calculation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSessionName">
+      <soap:operation soapAction="http://tempuri.org/AddSessionName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionName">
+      <soap:operation soapAction="http://tempuri.org/GetSessionName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IncrementSessionCount">
+      <soap:operation soapAction="http://tempuri.org/IncrementSessionCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionCount">
+      <soap:operation soapAction="http://tempuri.org/GetSessionCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeOutMethod">
+      <soap:operation soapAction="http://tempuri.org/TimeOutMethod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthMethod">
+      <soap:operation soapAction="http://tempuri.org/AuthMethod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AuthMethodWebServiceAuth" part="WebServiceAuth" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TokenAuthMethod">
+      <soap:operation soapAction="http://tempuri.org/TokenAuthMethod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TokenAuthMethodWebServiceAuth" part="WebServiceAuth" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateToken">
+      <soap:operation soapAction="http://tempuri.org/ValidateToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ValidateTokenWebServiceAuth" part="WebServiceAuth" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncryptDecryptMethod">
+      <soap:operation soapAction="http://tempuri.org/EncryptDecryptMethod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:EncryptDecryptMethodWebServiceAuth" part="WebServiceAuth" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/MethodOverloading" style="document" />
+      <wsdl:input name="MethodOverloading">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MethodOverloading">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployees">
+      <soap12:operation soapAction="http://tempuri.org/GetAllEmployees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Calculation">
+      <soap12:operation soapAction="http://tempuri.org/Calculation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSessionName">
+      <soap12:operation soapAction="http://tempuri.org/AddSessionName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionName">
+      <soap12:operation soapAction="http://tempuri.org/GetSessionName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IncrementSessionCount">
+      <soap12:operation soapAction="http://tempuri.org/IncrementSessionCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionCount">
+      <soap12:operation soapAction="http://tempuri.org/GetSessionCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeOutMethod">
+      <soap12:operation soapAction="http://tempuri.org/TimeOutMethod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthMethod">
+      <soap12:operation soapAction="http://tempuri.org/AuthMethod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AuthMethodWebServiceAuth" part="WebServiceAuth" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TokenAuthMethod">
+      <soap12:operation soapAction="http://tempuri.org/TokenAuthMethod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TokenAuthMethodWebServiceAuth" part="WebServiceAuth" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateToken">
+      <soap12:operation soapAction="http://tempuri.org/ValidateToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ValidateTokenWebServiceAuth" part="WebServiceAuth" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncryptDecryptMethod">
+      <soap12:operation soapAction="http://tempuri.org/EncryptDecryptMethod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:EncryptDecryptMethodWebServiceAuth" part="WebServiceAuth" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1HttpGet" type="tns:WebService1HttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/MethodOverloading" />
+      <wsdl:input name="MethodOverloading">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="MethodOverloading">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployees">
+      <http:operation location="/GetAllEmployees" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Calculation">
+      <http:operation location="/Calculation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSessionName">
+      <http:operation location="/AddSessionName" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionName">
+      <http:operation location="/GetSessionName" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IncrementSessionCount">
+      <http:operation location="/IncrementSessionCount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionCount">
+      <http:operation location="/GetSessionCount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeOutMethod">
+      <http:operation location="/TimeOutMethod" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthMethod">
+      <http:operation location="/AuthMethod" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TokenAuthMethod">
+      <http:operation location="/TokenAuthMethod" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateToken">
+      <http:operation location="/ValidateToken" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncryptDecryptMethod">
+      <http:operation location="/EncryptDecryptMethod" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1HttpPost" type="tns:WebService1HttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/MethodOverloading" />
+      <wsdl:input name="MethodOverloading">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="MethodOverloading">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmployees">
+      <http:operation location="/GetAllEmployees" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Calculation">
+      <http:operation location="/Calculation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSessionName">
+      <http:operation location="/AddSessionName" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionName">
+      <http:operation location="/GetSessionName" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IncrementSessionCount">
+      <http:operation location="/IncrementSessionCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionCount">
+      <http:operation location="/GetSessionCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TimeOutMethod">
+      <http:operation location="/TimeOutMethod" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthMethod">
+      <http:operation location="/AuthMethod" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TokenAuthMethod">
+      <http:operation location="/TokenAuthMethod" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateToken">
+      <http:operation location="/ValidateToken" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncryptDecryptMethod">
+      <http:operation location="/EncryptDecryptMethod" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="http://localhost:65041/WebService1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="http://localhost:65041/WebService1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1HttpGet" binding="tns:WebService1HttpGet">
+      <http:address location="http://localhost:65041/WebService1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1HttpPost" binding="tns:WebService1HttpPost">
+      <http:address location="http://localhost:65041/WebService1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

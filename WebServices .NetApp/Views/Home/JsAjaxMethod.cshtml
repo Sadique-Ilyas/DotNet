@@ -1,0 +1,31 @@
+﻿<br />
+<br />
+<h2>JsAjaxMethod</h2>
+<input id="name" class="form-control" placeholder="Enter name" />
+<button class="btn btn-primary" onclick="BtnClick()">Click</button>
+<p id="message"></p>
+
+<script type="text/javascript">
+    //document.ready(() =>
+    function BtnClick() {
+        var sname = document.getElementById("name").value;
+        $.ajax({
+            url: 'http://localhost:65041/WebService1.asmx/MethodOverloading',
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            async: false,
+            data: JSON.stringify({ name: sname }),
+            success: function (response) {
+                // Handle the response here
+                document.getElementById('message').innerHTML = response.d;
+                //alert(response.d);
+            },
+            error: function (xhr, status, error) {
+                // Handle any errors here
+                alert(error);
+            }
+        });
+    }
+    //);
+</script>
