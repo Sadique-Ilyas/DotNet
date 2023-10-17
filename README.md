@@ -1,13 +1,13 @@
 # DotNet
 Learning Microsoft Technologies & Others
-- [x] ADO.NET
-- [x] T-SQL
-- [x] LINQ
-- [x] WebServices (Rest, SOAP)
-- [x] Unit Test Frameworks (MsTest, NUnit, xUnit)
-- [x] .NET Core WebAPI
-- [ ] OAuth, JWT Authentication
-- [ ] WPF, WCF
-- [ ] MicrosServices
-- [ ] Design Patterns (CQRS)
-- [ ] SOA :white_check_mark:
+-  ADO.NET :heavy_check_mark:
+-  T-SQL :heavy_check_mark:
+-  LINQ :heavy_check_mark:
+-  WebServices (Rest, SOAP) :heavy_check_mark:
+-  Unit Test Frameworks (MsTest, NUnit, xUnit) :heavy_check_mark:
+-  .NET Core WebAPI :heavy_check_mark:
+-  OAuth, JWT Authentication
+-  WPF, WCF
+-  MicrosServices
+-  Design Patterns (CQRS)
+-  SOA
