@@ -157,10 +157,10 @@ namespace CSharp
 			StringBuilder result = new StringBuilder();
 
 			//Load xml
-			XDocument xdoc = XDocument.Load("C:\\Users\\Family\\source\\repos\\DotNet\\CSharp\\Customers.xml");
-
+			XDocument xdoc = XDocument.Load("C:\\Users\\Family\\Source\\Repos\\Learning-DotNet\\CSharp\\Customers.xml");
+            
 			//Run query
-			var customers = from customer in xdoc.Descendants("Customer")
+            var customers = from customer in xdoc.Descendants("Customer")
 							where customer.Element("Document").Value == "000 000 002"
 							select new
 							{
@@ -170,7 +170,7 @@ namespace CSharp
 			//Loop through results
 			foreach (var customer in customers)
 			{
-				result.AppendLine("========================");
+				result.AppendLine("==========XML DATA===========");
 				foreach (var details in customer.Children)
 					result.AppendLine(details.Name + "     " + details.Value);
 			}
