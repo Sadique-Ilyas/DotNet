@@ -4,7 +4,7 @@ namespace EntityFramework_CodeFirst.Models
 {
 	public class NorthwindDbContext : DbContext
 	{
-		public NorthwindDbContext() : base("Data Source=DESKTOP-49NRA9G;Initial Catalog=NorthwindDB;Integrated Security=True") 
+		public NorthwindDbContext() : base("Data Source=.;Initial Catalog=NorthwindDB;Integrated Security=True") 
 		{
 		}
 
