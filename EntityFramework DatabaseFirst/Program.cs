@@ -19,6 +19,7 @@ namespace EntityFramework_DatabaseFirst
 			{
                 Console.WriteLine($"#{product.ProductId} {product.Name} {product.Price} {product.Category.Name}");
             }
+			Console.ReadLine();
 		}
 	}
 }
